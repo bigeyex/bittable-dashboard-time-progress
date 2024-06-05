@@ -1,0 +1,77 @@
+/* 1 px = 0.5 vmin */
+.goalchartSemiCircularContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+@mixin semiCircleMixin($pvw: 1) {
+    .semiCircle {
+        width: 130vw * $pvw;
+        position: relative;
+
+        .chartRegion {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            .circularPart {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .textRegion {
+            display: flex;
+            flex-direction: column;
+            margin-top: 26vw * $pvw;
+            align-items: center;
+
+            .percentage {
+                font-size: 18vw * $pvw;
+                font-weight: 900;
+            }
+
+            .detailNumbers {
+                display: flex;
+                flex-direction: row;
+                font-size: 10vw * $pvw;
+                &.longText {
+                    font-size: 10vw * $pvw * 0.7;
+                    margin-top: 6vw * $pvw;
+                }
+                &.longLongText {
+                    font-size: 10vw * $pvw * 0.55;
+                }
+                font-weight: 600;
+                margin-top: 3vw * $pvw;
+
+                .seperatorContainer {
+                    width: 10vw * $pvw;
+                    display: flex;
+                    justify-content: center;
+
+                    .vSeperator {
+                        width: 1px;
+                        background-color: rgba(208, 211, 214, 1);
+                        body[theme-mode="dark"] & {
+                            background-color: rgba(207, 207, 207, 0.15);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.goalchartSemiCircularContainer {
+    @include semiCircleMixin($pvw: 0.63)
+}
+
+.goalchartSemiCircularContainer.config {
+    @include semiCircleMixin($pvw: 0.37);
+}

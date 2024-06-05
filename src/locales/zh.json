@@ -1,0 +1,49 @@
+{
+  "dataSource": "数据源",
+  "dataRange": "数据范围",
+  "dataRangeAll": "全部数据",
+
+  "chartShape": "图表形状",
+  "chartShapeBar": "条形",
+  "chartShapeSemiCircle": "半环",
+  "chartShapeCircle": "环形",
+
+  "color": "颜色",
+
+  "targetValue": "目标值",
+  "currentValue": "当前值",
+  "customValue": "自定义值",
+  "useBittableData": "多维表格数据",
+  "countRecords": "统计字段总数",
+  "aggrValue": "统计字段数值",
+  "selectField": "选择字段",
+  "sum": "求和",
+  "average": "平均值",
+  "max": "最大值",
+  "min": "最小值",
+
+  "formatSettings": "格式设置",
+  "prefix": "前缀",
+  "suffix": "后缀",
+  "pleaseInputPrefix": "请输入前缀",
+  "pleaseInputSuffix": "请输入后缀",
+  "none": "无",
+  "K": "千",
+  "WAN": "万",
+  "M": "百万",
+  "QIANWAN": "千万",
+  "YI": "亿",
+
+  "unit": "单位",
+  "left": "左",
+  "right": "右",
+  "format": "格式",
+  "percenageFormat": "百分比格式",
+  "integer": "整数",
+  "keepOneDigit": "保留 1 位小数",
+  "keepTwoDigit": "保留 2 位小数",
+  "abbrPerKilo": "千位缩写",
+  "targetValueAsDenominator": "用目标值除以当前值计算百分比",
+
+  "confirm": "确定"
+}

@@ -1,0 +1,78 @@
+/* 1 px = 0.5 vmin */
+.goalchartCircularContainer {
+    display: flex;
+    align-items: flex-center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+}
+
+@mixin circleMixin($pvw: 1) {
+    .circle {
+        display: flex;
+        flex-direction: row;
+        gap: 10vw * $pvw;
+        justify-content: center;
+        align-items: center;
+
+        .detailNumbers {
+            font-size: 13vw * $pvw;
+            &.longText {
+                font-size: 13vw * $pvw * 0.7;
+            }
+            &.longLongText {
+                font-size: 13vw * $pvw * 0.55;
+            }
+            font-weight: 600;
+            display: flex;
+
+            .seperatorContainer {
+                width: 10vw * $pvw;
+                display: flex;
+                justify-content: center;
+
+                .vSeperator {
+                    width: 1px;
+                    background-color: rgba(208, 211, 214, 1);
+                    body[theme-mode="dark"] & {
+                        background-color: rgba(207, 207, 207, 0.15);
+                    }
+                }
+            }
+        }
+
+        .chartRegion {
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            width: 50vw * $pvw;
+            height: 50vw * $pvw;
+            
+            .circularPart {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+            }
+
+            .percentage {
+                font-size: 13vw * $pvw;
+                font-weight: 900;
+
+                &.longText {
+                    font-size: 9vw * $pvw;
+                }
+            }
+        }
+
+    }
+}
+
+.goalchartCircularContainer {
+    @include circleMixin($pvw: 0.55)
+}
+
+.goalchartCircularContainer.config {
+    @include circleMixin($pvw: 0.3)
+}
