@@ -46,7 +46,12 @@ export default () => {
 
     return <Form labelPosition='top' className='configForm' 
                 onChange={(formData) => {
-                    dispatch(setConfigState(formData.values as ConfigPayload))
+                    const dateRange = formData.values.dateRange
+                    const dateRangeText = [
+                        typeof(dateRange[0])==='string' ? dateRange[0]:formData.values.dateRange[0].toLocaleDateString(),
+                        typeof(dateRange[1])==='string' ? dateRange[1]:formData.values.dateRange[1].toLocaleDateString()
+                    ]
+                    dispatch(setConfigState({...formData.values, ...{dateRange: dateRangeText}} as ConfigPayload))
                 }}
                 onSubmit={(formData) => dispatch(saveConfig(formData as ConfigPayload))}>
         <div className='configFields'>
@@ -77,18 +82,20 @@ export default () => {
 
             <Divider/>
 
-            <Form.InputGroup label={{ text: T("日期范围") }} className='fieldNumericFormat'>
+            <Form.InputGroup label={{ text: T("dateRange") }} className='fieldNumericFormat'>
                 <Form.Select field="dateType" initValue={0}>
-                    <Select.Option value="thisMonth">本月</Select.Option>
-                    <Select.Option value="thisQuarter">本季度</Select.Option>
-                    <Select.Option value="custom">自定义范围</Select.Option>
+                    <Select.Option value="thisMonth">{T('thisMonth')}</Select.Option>
+                    <Select.Option value="thisQuarter">{T('thisQuarter')}</Select.Option>
+                    <Select.Option value="thisYear">{T('thisYear')}</Select.Option>
+                    <Select.Option value="custom">{T('custom')}</Select.Option>
                 </Form.Select>
 
-                <Form.DatePicker field="dateRange" type="dateTimeRange" onChange={console.log} />
+                <Form.DatePicker field="dateRange" type="dateRange" style={config.dateType=='custom' ? {} : {display: 'none'}} />
             </Form.InputGroup>
             
 
-            <Form.Select field="numericDigits" label={T('日期格式')} initValue={0}>
+            <Form.Select field="dateFormat" label={T('dateFormat')} initValue={'YYYY/MM/DD'}
+                    fieldStyle={config.dateType=='custom' ? {} : {display: 'none'}}>
                 <Select.Option value="YYYY/MM/DD">YYYY/MM/DD</Select.Option>
                 <Select.Option value="YYYY-MM-DD">YYYY-MM-DD</Select.Option>
                 <Select.Option value="YY/MM/DD">YY/MM/DD</Select.Option>

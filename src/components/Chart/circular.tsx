@@ -28,10 +28,6 @@ export default ({currentValueText, targetValueText, color, percentage, percentag
         <div className="circle">
             <div className={"detailNumbers" + getLongTextClass(currentValueText, targetValueText, percentageText, 23)}>
                 <div className="currentValue" style={{color: `${color}`}}>{currentValueText}</div>
-                <div className="seperatorContainer">
-                    <div className="vSeperator"></div>
-                </div>
-                <div className="targetValue">{targetValueText}</div>
             </div>
             <div ref={ref} className="chartRegion">
                 <CircularPart ref={chartRef} className="circularPart" color={color} percentage={percentage}/>

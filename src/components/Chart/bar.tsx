@@ -7,10 +7,6 @@ export default ({currentValueText, targetValueText, color, percentage, percentag
         <div className="goalchartBar">
             <div className={"textRegion" + getLongTextClass(currentValueText, targetValueText, percentageText)}>
                 <div className="currentValue" style={{color: `${color}`}}>{currentValueText}</div>
-                <div className="seperatorContainer">
-                    <div className="vSeperator"></div>
-                </div>
-                <div className="targetValue">{targetValueText}</div>
                 <div className="percentage">{percentageText}%</div>
             </div>
             <div className="chartBar">

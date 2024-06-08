@@ -8,6 +8,9 @@ export interface ConfigState {
     color: string
     chartType: string
     percentageNumericDigits: number
+    dateType: string
+    dateRange: string[]
+    dateFormat: string
 }
 
 export interface ConfigSliceState {
@@ -17,11 +20,18 @@ export interface ConfigSliceState {
 export type ConfigPayload = Partial<ConfigState>
 
 // Define the initial state using that type
+const today = new Date()
 const initialState: ConfigSliceState = {
   config: {
     color: "rgb(255,198,12)",
     chartType: "bar",
     percentageNumericDigits: 0,
+    dateType: "thisMonth",
+    dateRange: [
+      today.toLocaleDateString(),
+      (new Date(today.getFullYear(), today.getMonth()+1, 0)).toLocaleDateString()
+    ],
+    dateFormat: 'YYYY/MM/DD',
   }
 }
 

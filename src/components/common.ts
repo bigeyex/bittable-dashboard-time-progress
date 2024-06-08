@@ -6,6 +6,31 @@ export const isConfigLayout = () => {
     return dashboard.state === DashboardState.Config || dashboard.state === DashboardState.Create
 }
 
+export const getDynamicDateRange = (dateType:string) => {
+  const today = new Date()
+  if (dateType === 'thisQuarter') {
+    const quarterStartMonthList = [0, 0, 0, 3, 3, 3, 6, 6, 6, 9, 9, 9]
+    const quarterStartMonth = quarterStartMonthList[today.getMonth()]
+    return [
+      new Date(today.getFullYear(), quarterStartMonth, 0),
+      quarterStartMonth >= 9 ? new Date(today.getFullYear(), quarterStartMonth+3, 0)
+        : new Date(today.getFullYear()+1, 0, 0)
+    ]
+  }
+  else if (dateType === 'thisYear') {
+    return [
+      new Date(today.getFullYear(), 0, 0),
+      new Date(today.getFullYear()+1, 0, 0)
+    ]
+  }
+  else { // dateType === 'thisMonth'
+    return [
+      new Date(today.getFullYear(), today.getMonth(), 0),
+      new Date(today.getFullYear(), today.getMonth()+1, 0)
+    ]
+  }
+}
+
 export const themeColors = [
     'rgba(31, 35, 41, 1)', 'rgba(51, 109, 244, 1)', 'rgba(122, 53, 240, 1)',
     'rgba(53, 189, 75, 1)', 'rgba(45, 190, 171, 1)', 'rgba(255, 198, 10, 1)',
