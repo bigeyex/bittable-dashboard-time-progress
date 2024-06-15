@@ -13,7 +13,7 @@ export const getDynamicDateRange = (dateType:string) => {
     const quarterStartMonth = quarterStartMonthList[today.getMonth()]
     return [
       new Date(today.getFullYear(), quarterStartMonth, 0),
-      quarterStartMonth >= 9 ? new Date(today.getFullYear(), quarterStartMonth+3, 0)
+      quarterStartMonth < 9 ? new Date(today.getFullYear(), quarterStartMonth+3, 0)
         : new Date(today.getFullYear()+1, 0, 0)
     ]
   }
