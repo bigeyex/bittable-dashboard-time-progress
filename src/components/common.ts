@@ -19,13 +19,13 @@ export const getDynamicDateRange = (dateType:string) => {
   }
   else if (dateType === 'thisYear') {
     return [
-      new Date(today.getFullYear(), 0, 0),
+      new Date(today.getFullYear(), 0, 1),
       new Date(today.getFullYear()+1, 0, 0)
     ]
   }
   else { // dateType === 'thisMonth'
     return [
-      new Date(today.getFullYear(), today.getMonth(), 0),
+      new Date(today.getFullYear(), today.getMonth(), 1),
       new Date(today.getFullYear(), today.getMonth()+1, 0)
     ]
   }

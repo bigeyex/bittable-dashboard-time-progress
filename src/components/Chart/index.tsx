@@ -45,7 +45,7 @@ export default () => {
     }
     const today = new Date()
     let percentage = 100 * (today.getTime()-dateRangeStart.getTime()) / 
-                        (dateRangeEnd.getTime()-dateRangeStart.getTime()) 
+                        (dateRangeEnd.getTime()+86400000-dateRangeStart.getTime()) 
     let percentageText = percentage.toFixed(0)
     if (config.percentageNumericDigits) {
         percentageText = percentage.toFixed(config.percentageNumericDigits)
