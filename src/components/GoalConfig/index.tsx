@@ -112,6 +112,14 @@ export default () => {
                 </Form.Select>
             </Form.InputGroup>
 
+            <Form.InputGroup label={{ text: T("todayCalcMethod") }} className='fieldNumericFormat'>
+                <Form.Select field="todayCalcMethod" initValue={0}>
+                    <Select.Option value={-1}>{T("endOfYesterday")}</Select.Option>
+                    <Select.Option value={0}>{T("realTime")}</Select.Option>
+                    <Select.Option value={1}>{T("endOfToday")}</Select.Option>
+                </Form.Select>
+            </Form.InputGroup>
+
         </div>
         <div className='configActions'>
             <Button theme='solid' type="primary" htmlType="submit" className="btn-margin-right">{T('confirm')}</Button>

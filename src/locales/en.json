@@ -18,5 +18,9 @@
   "integer": "Integer",
   "keepOneDigit": "Keep 1 decimal place",
   "keepTwoDigit": "Keep 2 decimal places",
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "todayCalcMethod": "How to calculate \"Today\"",
+  "endOfYesterday": "End of Yesterday",
+  "realTime": "Real Time",
+  "endOfToday": "End of Today"
 }

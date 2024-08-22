@@ -11,6 +11,7 @@ export interface ConfigState {
     dateType: string
     dateRange: string[]
     dateFormat: string
+    todayCalcMethod: number // "今天"的计算方式，-1为昨天结束，0为实际时间，+1为今天结束
 }
 
 export interface ConfigSliceState {
@@ -32,6 +33,7 @@ const initialState: ConfigSliceState = {
       (new Date(today.getFullYear(), today.getMonth()+1, 0)).toLocaleDateString()
     ],
     dateFormat: 'YYYY/MM/DD',
+    todayCalcMethod: 0
   }
 }
 

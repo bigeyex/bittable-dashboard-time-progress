@@ -44,6 +44,12 @@ export default () => {
         currentValueText = dateRangeStartText + ' - ' + dateRangeEndText
     }
     const today = new Date()
+    if (config.todayCalcMethod == -1) {
+        today.setHours(0,0,0,0);
+    }
+    else if (config.todayCalcMethod == 1) {
+        today.setHours(23,59,59,999);
+    }
     let percentage = 100 * (today.getTime()-dateRangeStart.getTime()) / 
                         (dateRangeEnd.getTime()+86400000-dateRangeStart.getTime()) 
     let percentageText = percentage.toFixed(0)
