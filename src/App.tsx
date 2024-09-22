@@ -1,3 +1,4 @@
+import '@lark-base-open/js-sdk/dist/style/dashboard.css';
 import './App.css';
 import { DashboardState, bitable, dashboard } from "@lark-base-open/js-sdk";
 import GoalConfig from './components/GoalConfig';
@@ -5,14 +6,22 @@ import Chart from './components/Chart';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from './store/hook';
 import { ConfigPayload, loadConfig } from './store/config';
-import { useTheme } from './components/common';
 
 export default function App() {
   const dispatch = useAppDispatch()
   const config = useAppSelector(store => store.config.config)
-  useTheme()
+  
+  dashboard.onThemeChange(res => {
+    document.body.setAttribute('theme-mode', res.data.theme.toLowerCase());
+  })
+  const setThemeAttribute = async() => {
+    const theme = await dashboard.getTheme();
+    document.body.setAttribute('theme-mode', theme.theme.toLowerCase());
+  }
 
   useEffect(() => {
+    setThemeAttribute()
+
     if (dashboard.state === DashboardState.View || dashboard.state === DashboardState.FullScreen) {
       dispatch(loadConfig())
 
